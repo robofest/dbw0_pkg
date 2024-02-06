@@ -1,0 +1,12 @@
+<launch>
+
+   <!-- DBW system -->
+   <arg name="sys" default="false"/>
+   <group if="$(arg sys)">
+     <include file="$(find dbw_polaris_can)/launch/dbw.launch" />
+   </group>
+
+   <!-- Launch duration drive node -->
+   <node pkg="drive_dist_pkg" type="drive4.py" name="drive4_node" output="screen" launch-prefix="xterm -e" /> 
+
+</launch>
